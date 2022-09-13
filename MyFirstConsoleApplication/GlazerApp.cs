@@ -8,12 +8,12 @@ namespace MyFirstConsoleApplication
 {
     internal static class GlazerApp
     {
-        private static double Width { get; set; }
-        private static double Height { get; set; }
-        private static double WoodLength { get; set; }
-        private static double GlassArea { get; set; }
         private static string WidthString { get; set; }
         private static string HeightString { get; set; }
+        private static double Width => double.Parse(WidthString);
+        private static double Height => double.Parse(HeightString);
+        private static double WoodLength => 2 * (Width + Height) * 3.25;
+        private static double GlassArea => 2 * (Width * Height); 
 
 
         public static void RunExample()
@@ -22,22 +22,9 @@ namespace MyFirstConsoleApplication
             Console.WriteLine("Please enter the width: ");
             WidthString = Console.ReadLine();
 
-            // Ask for HidthString Value
+            // Ask for HeightString Value
             Console.WriteLine("Please enter the height: ");
             HeightString = Console.ReadLine();
-
-
-            // Parse into respective values
-            Width = double.Parse(WidthString);
-
-            Height = double.Parse(HeightString);
-
-
-            // Do Calculations
-            WoodLength = 2 * (Width + Height) * 3.25;
-
-            GlassArea = 2 * (Width * Height);
-
 
             // Display to user
             Console.WriteLine($"The length of the wood is {WoodLength} feet");
